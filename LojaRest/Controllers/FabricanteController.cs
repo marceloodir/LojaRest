@@ -15,13 +15,16 @@ namespace LojaRest.Controllers
         {
             List<string> strings = new List<string>();
             IEnumerable<Models.Fabricante> fabricantes = this.lendobanco();
-
-            strings.Add(create_table(entrada));
-            String string_insert = insert_table(entrada);
-            foreach (var f in fabricantes)
+            string create_string = create_table(entrada);
+            if (create_string != null)
             {
-               strings.Add(String.Format(string_insert, f.Id, f.Descricao));
-            }
+                strings.Add(create_string);
+                String string_insert = insert_table(entrada);
+                foreach (var f in fabricantes)
+                {
+                    strings.Add(String.Format(string_insert, f.Id, f.Descricao));
+                }
+            }      
             return strings;
         }
 
