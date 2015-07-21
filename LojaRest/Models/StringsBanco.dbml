@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="StringsBanco" Class="StringsBancoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DEV-LENOVO;Initial Catalog=StringsBanco;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="StringsBancoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.create_table" Member="create_table">
+    <Type Name="create_table">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_database" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="string" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="create_table_insert_table" Member="insert_table" ThisKey="id" OtherKey="id_create_table" Type="insert_table" Cardinality="One" />
+      <Association Name="databases_create_table" Member="databases" ThisKey="id_database" OtherKey="id" Type="databases" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.insert_table" Member="insert_table">
+    <Type Name="insert_table">
+      <Column Name="id_create_table" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="string" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="create_table_insert_table" Member="create_table" ThisKey="id_create_table" OtherKey="id" Type="create_table" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.databases" Member="databases">
+    <Type Name="databases">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="databases_create_table" Member="create_table" ThisKey="id" OtherKey="id_database" Type="create_table" />
+    </Type>
+  </Table>
+</Database>

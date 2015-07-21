@@ -172,6 +172,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Loja.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\StringsBanco.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringsBanco.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +253,11 @@
       <LastGenOutput>Loja.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Models\StringsBanco.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>StringsBanco.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\LojaRest.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -305,6 +315,11 @@
   <ItemGroup>
     <None Include="Models\Loja.dbml.layout">
       <DependentUpon>Loja.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\StringsBanco.dbml.layout">
+      <DependentUpon>StringsBanco.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <PropertyGroup>
