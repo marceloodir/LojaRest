@@ -40,29 +40,15 @@ namespace LojaRest.Controllers
             return r.ToList();
         }
 
-        private Boolean selecionandoBanco(string nomedobanco)
-        {
-            Models.StringsBancoDataContext dc = new Models.StringsBancoDataContext();
-            var r = from f in dc.databases select f.name == nomedobanco;
-            
-            if (r != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         private string create_table(string nomedobanco)
         {
-            Models.StringsBancoDataContext dc = new Models.StringsBancoDataContext();
+            Models.DBStringsDataContext dc = new Models.DBStringsDataContext();
             try
             {
-                Models.databases banco = (from f in dc.databases where f.name == nomedobanco select f).Single();
-                Models.create_table tabela = banco.create_table.Single();
-                return tabela.@string;
+                Models.database banco = (from f in dc.database where f.name == nomedobanco select f).Single();
+                Models.table tabela = banco.table.Single();
+                return tabela.create_string;
             }
             catch (Exception)
             {
@@ -72,12 +58,12 @@ namespace LojaRest.Controllers
 
         private string insert_table(string nomedobanco)
         {
-            Models.StringsBancoDataContext dc = new Models.StringsBancoDataContext();
+            Models.DBStringsDataContext dc = new Models.DBStringsDataContext();
             try
             {
-                Models.databases banco = (from f in dc.databases where f.name == nomedobanco select f).Single();
-                Models.create_table tabela = banco.create_table.Single();
-                return tabela.insert_table.@string;
+                Models.database banco = (from f in dc.database where f.name == nomedobanco select f).Single();
+                Models.table tabela = banco.table.Single();
+                return tabela.insert_string;
             }
             catch (Exception)
             {

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="StringsBanco" Class="DBStringsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DEV-LENOVO;Initial Catalog=StringsBanco;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="StringsBancoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[database]" Member="database">
+    <Type Name="database">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="connection" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="database_table" Member="table" ThisKey="id" OtherKey="id_database" Type="table" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[table]" Member="table">
+    <Type Name="table">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_database" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="create_string" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="drop_string" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="insert_string" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="select_string" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="database_table" Member="database" ThisKey="id_database" OtherKey="id" Type="database" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
