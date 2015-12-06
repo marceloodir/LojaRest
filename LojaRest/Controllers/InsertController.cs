@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace LojaRest.Controllers
 {
+    //Controlador pensado apenas para tratar os INSERTS (locais e remotos)
     public class InsertController : ApiController
     {
         private Models.DBStringsDataContext dc = new Models.DBStringsDataContext();
@@ -19,16 +20,19 @@ namespace LojaRest.Controllers
 
             if (banco == null)
             {
+                //parâmetro necessário
                 return null;
             }
             else
             {
+                //parâmetro necessário para inserção no banco, string SQL INSERT pronta.
                 if (strinsert != null)
                 {
                     InsertRemote(strinsert);
                     return null;
                 }
 
+                //parâmetro necessário para gerar uma string SQL INSERT no banco local do dispositivo móvel.
                 if (strtabela != null)
                 {
                     return GerarInsertString();
@@ -39,23 +43,19 @@ namespace LojaRest.Controllers
 
         private string GerarInsertString()
         {
+            //Nome fixado, ainda não buscando do banco de configurações
             Models.table tabela = (from t in banco.table where t.name == "fabricante" select t).Single();
             return tabela.insert_string;
         }
 
         private void InsertRemote(string cmd)
         {
-            try
-            {
-                SqlConnection connection = new SqlConnection(banco.connection);
-                connection.Open();
-                SqlCommand sqlCmd = new SqlCommand(cmd, connection);
-                sqlCmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {                
-                throw;
-            }
+            // Executando diretamente sem tratamento, pode ser MUITO perigoso, pensar nesse problema depois.
+            SqlConnection connection = new SqlConnection(banco.connection);
+            connection.Open();
+            SqlCommand sqlCmd = new SqlCommand(cmd, connection);
+            sqlCmd.ExecuteNonQuery();
+            connection.Close();
         }
 
         private void setBanco(string entrada)
