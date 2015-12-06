@@ -5,6 +5,7 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="connection" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="type" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Association Name="database_table" Member="table" ThisKey="id" OtherKey="id_database" Type="table" />
     </Type>
   </Table>

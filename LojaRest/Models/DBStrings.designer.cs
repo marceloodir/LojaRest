@@ -97,6 +97,8 @@ namespace LojaRest.Models
 		
 		private string _connection;
 		
+		private string _type;
+		
 		private EntitySet<table> _table;
 		
     #region Definições do Método de Extensibilidade
@@ -109,6 +111,8 @@ namespace LojaRest.Models
     partial void OnnameChanged();
     partial void OnconnectionChanging(string value);
     partial void OnconnectionChanged();
+    partial void OntypeChanging(string value);
+    partial void OntypeChanged();
     #endregion
 		
 		public database()
@@ -173,6 +177,26 @@ namespace LojaRest.Models
 					this._connection = value;
 					this.SendPropertyChanged("connection");
 					this.OnconnectionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="VarChar(30)")]
+		public string type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this.OntypeChanging(value);
+					this.SendPropertyChanging();
+					this._type = value;
+					this.SendPropertyChanged("type");
+					this.OntypeChanged();
 				}
 			}
 		}

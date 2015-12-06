@@ -2,23 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBStrings">
   <DataContextMoniker Name="/DBStringsDataContext" />
   <nestedChildShapes>
-    <classShape Id="2edaa223-6fda-4603-be16-394305c9e1e9" absoluteBounds="0.75, 1.375, 2, 1.3862939453125003">
+    <classShape Id="fb87aaef-8a9f-47ce-b4f0-0071086e34f3" absoluteBounds="0.75, 1.375, 2, 1.5785953776041666">
       <DataClassMoniker Name="/DBStringsDataContext/database" />
       <nestedChildShapes>
-        <elementListCompartment Id="22f41672-4e61-459e-81de-caa2653c399f" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9e55528a-6ca5-4005-90d5-2d50589bdf77" absoluteBounds="0.765, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9e1bc06b-6fe2-408f-9ce7-16cca6dad8bd" absoluteBounds="3.5, 1, 2, 2.3478011067708335">
+    <classShape Id="6fa2ba37-b1da-42ad-8bce-c7f3bc7b205b" absoluteBounds="3.5, 1, 2, 2.3478011067708335">
       <DataClassMoniker Name="/DBStringsDataContext/table" />
       <nestedChildShapes>
-        <elementListCompartment Id="5627d200-876e-4505-934f-ed5e3975ca34" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d25fcf01-d01e-4f3e-a858-0935d6000bc3" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.06814697265625); (3.5 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.16429768880208); (3.5 : 2.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DBStringsDataContext/database/database_table" />
       <nodes>
-        <classShapeMoniker Id="2edaa223-6fda-4603-be16-394305c9e1e9" />
-        <classShapeMoniker Id="9e1bc06b-6fe2-408f-9ce7-16cca6dad8bd" />
+        <classShapeMoniker Id="fb87aaef-8a9f-47ce-b4f0-0071086e34f3" />
+        <classShapeMoniker Id="6fa2ba37-b1da-42ad-8bce-c7f3bc7b205b" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
